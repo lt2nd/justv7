@@ -15,6 +15,7 @@ import PostContent from "./PostContent";
 import { useEffect, useState } from "react";
 import { useAuth } from "../app/providers/AuthProvider";
 import { supabase } from "../lib/supabase";
+import { sendLikeNotification } from "../utils/notifications";
 
 export default function PostListItem({ post }: any) {
 
@@ -48,7 +49,7 @@ export default function PostListItem({ post }: any) {
             .select();
 
         // send notification to the owner of that post
-        //sendLikeNotification(data[0]);
+        sendLikeNotification(data[0]);
 
         setLikeRecord(data[0]);
     };

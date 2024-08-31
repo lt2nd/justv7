@@ -2,6 +2,7 @@ import { Redirect, Tabs } from "expo-router";
 import React from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome"
 import { useAuth } from "../providers/AuthProvider";
+import NotificationProvider from "../providers/NotificationProvider";
 
 
 export default function TabsLayout() {
@@ -11,24 +12,25 @@ export default function TabsLayout() {
   if (!isAuthenticated) {
     return <Redirect href="/(auth)/login/" />;
   }
-    return (
-        <Tabs
-            screenOptions={{
-                tabBarActiveTintColor: 'black',
-                tabBarInactiveTintColor: 'lightblue',
-                tabBarShowLabel: false,
-            }}
-        >
-            <Tabs.Screen
-                name="index"
-                options={{
-                    headerTitle: 'Just Feeds',
-                    tabBarIcon: ({ color }) => (
-                        <FontAwesome name="home" size={26} color={color} />
-                    ),
-                }}
-            />
-            <Tabs.Screen
+  return (
+    <NotificationProvider>
+      <Tabs
+        screenOptions={{
+          tabBarActiveTintColor: 'black',
+          tabBarInactiveTintColor: 'lightblue',
+          tabBarShowLabel: false,
+        }}
+      >
+        <Tabs.Screen
+          name="index"
+          options={{
+            headerTitle: 'Just Feeds',
+            tabBarIcon: ({ color }) => (
+              <FontAwesome name="home" size={26} color={color} />
+            ),
+          }}
+        />
+        <Tabs.Screen
           name="new"
           options={{
             headerTitle: 'Create post',
@@ -47,6 +49,7 @@ export default function TabsLayout() {
             ),
           }}
         />
-        </Tabs>
-    );
+      </Tabs>
+    </NotificationProvider>
+  );
 }
