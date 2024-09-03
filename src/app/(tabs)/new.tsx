@@ -14,7 +14,7 @@ import { ResizeMode, Video } from 'expo-av';
 
 export default function CreatePost() {
 
-  const emptyimage = require('../../../assets/images/emptyimage.png');
+  const emptyimage = cld.image('emptyimage_m9buow');
 
   const [caption, setCaption] = useState('');
   const [media, setMedia] = useState<string | null>(null);
@@ -86,7 +86,10 @@ export default function CreatePost() {
         {/* image */}
 
         {!media ? (
-          <Image source={emptyimage} className='aspect-[3/4] h-70 w-52 rounded-lg' />
+          <Image 
+          source={{uri: 'https://res.cloudinary.com/dvu8rnsgl/image/upload/v1725383193/samples/emptyimage_m9buow.png'}} 
+          className='aspect-[3/4] h-70 w-52 rounded-lg' 
+          />
         ) : mediaType === 'image' ?
           (<Image
             source={{ uri: media }}

@@ -6,6 +6,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { supabase } from '~/src/lib/supabase';
+import images from '~/assets/images';
 
 const register = () => {
 
@@ -46,7 +47,7 @@ const register = () => {
             <View style={{ marginTop: 20 }}>
                 <Image
                     style={{ width: 150, height: 100, resizeMode: "contain", backgroundColor: 'black', borderRadius: 5 }}
-                    source={require('../../../assets/logo-just.png')}
+                    source={{uri: 'https://res.cloudinary.com/dvu8rnsgl/image/upload/v1725390243/samples/White_logo_-_no_background_ax5rux.png'}}
                 />
             </View>
 

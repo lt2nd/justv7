@@ -5,6 +5,8 @@ import { useRouter } from "expo-router";
 import React, { useState, useEffect } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { supabase } from '~/src/lib/supabase';
+import images from '~/assets/images';
+
 
 // Tells Supabase Auth to continuously refresh the session automatically if
 // the app is in the foreground. When this is added, you will continue to receive
@@ -47,7 +49,7 @@ const login = () => {
       <View style={{ marginTop: 50 }}>
         <Image
           style={{ width: 150, height: 100, resizeMode: "contain", backgroundColor: 'black', borderRadius: 5 }}
-          source={require('../../../assets/logo-just.png')}
+          source={{uri: 'https://res.cloudinary.com/dvu8rnsgl/image/upload/v1725390243/samples/White_logo_-_no_background_ax5rux.png'}}
         />
       </View>
 
